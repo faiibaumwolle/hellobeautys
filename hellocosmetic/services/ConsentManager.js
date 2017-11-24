@@ -1,0 +1,10 @@
+class ConsentManager {
+  
+  constructor() {
+
+  }
+
+  checkConsent(){
+  	
+  };
+}

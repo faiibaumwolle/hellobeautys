@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  
+<head>
+    <title>HELLOBEAUTYS All Beauty For You</title>
+    <link rel="shortcut icon" href="images/logo.png" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+   
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+<body>
+    <script src="js/jquery-1.12.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="services/PersonalData.js"></script>
+    <script src="services/DataManager.js"></script>
+    <script src="services/ConsentManager.js"></script>
+    <script src="services/RegistrationPersonalData.js"></script>
+    <script src="services/RegistrationDataManager.js"></script>
+    <script src="services/RegistrationConsentManager.js"></script>    <script>
+        function Register(){
+            rdm = new RegistrationDataManager();
+            if(window.confirm(rdm.collectData())){
+                rpd = new RegistrationPersonalData(
+                    $("#email").val(),
+                    $("#password").val(),
+                    $("#name").val(),
+                    $("#surname").val(),
+                    $("#gender").val(),
+                    $("#tel").val()
+                    );
+                rdm.insertData(rpd);
+                //rpd.setEmail("test@hotmail.com");
+                //alert(rpd.getEmail() + " " + rpd.getGender());
+            }
+        }
+    </script>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="row">
+ 
+        <div class="col-md-9">
+            <h3><b style="color: #FF5675;">REGISTER</b></h3>
+            <br>
+             <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" style="color: #848482; margin: 20px 0px 20px 0px;">
+                    <form class="form-horizontal" method="post" action="index.php?page=register">
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3">
+                                <b style="color: #FF7493;">อีเมล</b><br><b>(e-mail)</b>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="email" name="email"  value="test@hotmail.com" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass" class="col-sm-3">
+                                <b style="color: #FF7493;">รหัสผ่าน</b><br><b>(password)</b>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="pass" name="pass" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cfpass" class="col-sm-3">
+                                <b style="color: #FF7493;">ยืนยันรหัสผ่าน</b><br><b>(confirm)</b>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="cfpass" name="cfpass" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3">
+                                <b style="color: #FF7493;">ชื่อ</b><br><b>(name)</b>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="name" name="name"  placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="surname" class="col-sm-3">
+                                <b style="color: #FF7493;">นามสกุล</b><br><b>(surname)</b>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="surname" name="surname"  placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="col-sm-3">
+                                <b style="color: #FF7493;">เพศ</b><br><b>(gender)</b>
+                            </label>
+                            <div class="col-sm-9">
+                                <select id="gender" name="gender" class="form-control">
+                                    <option value="">-----gender select-----</option>
+                                    <option value="male">ชาย</option>
+                                    <option value="female">หญิง</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel" class="col-sm-3">
+                                <b style="color: #FF7493;">เบอร์โทร</b><br><b>(tel.)</b>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="tel" name="tel"  placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="button" onclick="Register()" class="btn btn-default">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+             </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+</body>
+</html>
